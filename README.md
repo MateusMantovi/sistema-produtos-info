@@ -1,6 +1,6 @@
 # Sistema de Gestão de Produtos de Informática (v1.0)
 
-![Java](https://img.shields.io/badge/Java-21-blue.svg?logo=openjdk&style=for-the-badge) ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.3.0-6DB33F.svg?logo=spring&style=for-the-badge) ![Angular](https://img.shields.io/badge/Angular-18-DD0031.svg?logo=angular&style=for-the-badge) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791.svg?logo=postgresql&style=for-the-badge) ![Status](https://img.shields.io/badge/status-ativo-success.svg?style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-21-blue.svg?logo=openjdk&style=for-the-badge) ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4.6-6DB33F.svg?logo=spring&style=for-the-badge) ![Angular](https://img.shields.io/badge/Angular-18-DD0031.svg?logo=angular&style=for-the-badge) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791.svg?logo=postgresql&style=for-the-badge) ![Status](https://img.shields.io/badge/status-ativo-success.svg?style=for-the-badge)
 
 Repositório da aplicação web Full-Stack "Sistema de Gestão de Produtos". Este projeto serve como um exemplo robusto e moderno de desenvolvimento de software, utilizando as melhores práticas do mercado com Java/Spring Boot para o backend e Angular para o frontend.
 
