@@ -1,0 +1,69 @@
+<div class="page-header">
+  <h2>Nossos Produtos</h2>
+  <a [routerLink]="['/produtos/novo']" class="btn btn-primary">
+    <span>+</span> Novo Produto
+  </a>
+</div>
+
+@defer (on viewport) { @if (produtos$ | async; as produtos) { @if
+(produtos.length > 0) {
+<div class="product-table-container">
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th>Estoque</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (produto of produtos; track produto.id) {
+      <tr>
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.categoria || "N/A" }}</td>
+        <td>{{ produto.preco | currency : "BRL" }}</td>
+        <td>{{ produto.estoque }}</td>
+        <td class="actions">
+          <a
+            [routerLink]="['/produtos/editar', produto.id]"
+            class="btn btn-icon"
+            title="Editar"
+            >✏️</a
+          >
+          <button
+            (click)="deleteProduto(produto.id!)"
+            class="btn btn-icon btn-danger"
+            title="Excluir"
+          >
+            🗑️
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+} @else {
+<div class="empty-state">
+  <p>Nenhum produto cadastrado ainda.</p>
+  <p>Clique em "Novo Produto" para começar.</p>
+</div>
+} } } @placeholder (minimum 500ms) {
+<div class="product-table-container skeleton-container">
+  <div class="skeleton-row header"></div>
+  <div class="skeleton-row"></div>
+  <div class="skeleton-row"></div>
+  <div class="skeleton-row"></div>
+</div>
+
+} @loading {
+<div class="loading-indicator">Carregando produtos...</div>
+
+} @error {
+<div class="empty-state">
+  <p>Ocorreu um erro ao carregar os produtos.</p>
+  <p>Verifique sua conexão e se o servidor backend está no ar.</p>
+</div>
+}

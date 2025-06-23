@@ -1,0 +1,155 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--c-border);
+  padding-bottom: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}
+
+.product-table-container {
+  background-color: var(--c-surface);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--c-shadow);
+  overflow: hidden;
+  transition: background-color var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--c-border);
+    transition: border-color var(--transition-speed);
+  }
+
+  thead th {
+    font-weight: 600;
+    color: var(--c-text-secondary);
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+  tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  [data-theme="dark"] & tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  [data-theme="dark"] & thead th {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  text-decoration: none;
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.btn-primary {
+  background-color: var(--c-accent);
+  color: white;
+  &:hover {
+    background-color: #006ae6;
+  }
+}
+
+.btn-icon {
+  background: transparent;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--c-text-secondary);
+  border: none;
+  &:hover {
+    background-color: var(--c-bg);
+  }
+}
+
+.btn-danger:hover {
+  color: #ff3b30;
+}
+
+.loading-indicator,
+.empty-state {
+  text-align: center;
+  padding: 4rem;
+  color: var(--c-text-secondary);
+  font-size: 1.2rem;
+}
+/* Adicione este código no final do arquivo product-list.component.scss */
+
+/* Estilos para o Skeleton Loader */
+@keyframes skeleton-pulse {
+  0% {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+[data-theme="dark"] {
+  @keyframes skeleton-pulse {
+    0% {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    50% {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    100% {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+}
+
+.skeleton-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1px; // Simula a borda da tabela
+}
+
+.skeleton-row {
+  width: 100%;
+  height: 60px; // Altura aproximada de uma linha da tabela
+  background-color: var(--c-bg);
+  animation: skeleton-pulse 1.5s infinite ease-in-out;
+  border-radius: 4px;
+
+  &.header {
+    height: 50px; // Cabeçalho é um pouco menor
+  }
+}

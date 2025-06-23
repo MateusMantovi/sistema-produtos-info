@@ -1,0 +1,44 @@
+.main-header {
+  background-color: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
+  padding: 0 2rem;
+  transition: background-color var(--transition-speed),
+    border-color var(--transition-speed);
+  box-shadow: 0 1px 3px var(--c-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: var(--c-text-primary);
+  transition: color var(--transition-speed);
+
+  img {
+    height: 24px;
+    width: 24px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+}
+
+.theme-switcher {
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}

@@ -1,0 +1,92 @@
+<div class="page-header">
+  <h2>{{ isEditMode ? "Editar Produto" : "Novo Produto" }}</h2>
+  <a routerLink="/produtos" class="btn-back">&larr; Voltar para a lista</a>
+</div>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="nome">Nome do Produto</label>
+      <input
+        id="nome"
+        type="text"
+        formControlName="nome"
+        placeholder="Ex: Monitor Gamer UltraWide"
+      />
+      @if (isControlInvalid('nome')) {
+      <div class="error-message">
+        @if (f['nome'].errors?.['required']) {
+        <span>O nome é obrigatório.</span> } @if
+        (f['nome'].errors?.['minlength']) {
+        <span>O nome deve ter no mínimo 3 caracteres.</span> }
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="categoria">Categoria</label>
+      <input
+        id="categoria"
+        type="text"
+        formControlName="categoria"
+        placeholder="Ex: Monitores"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="preco">Preço</label>
+      <input
+        id="preco"
+        type="number"
+        formControlName="preco"
+        placeholder="Ex: 2500.00"
+      />
+      @if (isControlInvalid('preco')) {
+      <div class="error-message">
+        @if (f['preco'].errors?.['required']) {
+        <span>O preço é obrigatório.</span> } @if (f['preco'].errors?.['min']) {
+        <span>O preço deve ser positivo.</span> }
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="estoque">Estoque</label>
+      <input
+        id="estoque"
+        type="number"
+        formControlName="estoque"
+        placeholder="Ex: 50"
+      />
+      @if (isControlInvalid('estoque')) {
+      <div class="error-message">
+        @if (f['estoque'].errors?.['required']) {
+        <span>O estoque é obrigatório.</span> } @if
+        (f['estoque'].errors?.['min']) {
+        <span>O estoque não pode ser negativo.</span> }
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="form-group full-width">
+    <label for="descricao">Descrição</label>
+    <textarea
+      id="descricao"
+      formControlName="descricao"
+      rows="4"
+      placeholder="Detalhes do produto..."
+    ></textarea>
+  </div>
+
+  <div class="form-actions">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="productForm.invalid"
+    >
+      {{ isEditMode ? "Salvar Alterações" : "Cadastrar Produto" }}
+    </button>
+    <a routerLink="/produtos" class="btn btn-secondary">Cancelar</a>
+  </div>
+</form>

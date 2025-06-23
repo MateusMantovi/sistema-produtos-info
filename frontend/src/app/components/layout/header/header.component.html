@@ -1,0 +1,15 @@
+<header class="main-header">
+  <div class="header-content">
+    <a [routerLink]="['/']" class="logo">
+      <img src="assets/pc.svg" alt="Ícone" />
+      <h1>Gestão de Produtos</h1>
+    </a>
+    <div class="theme-switcher" (click)="toggleTheme()">
+      @if (isDarkMode) {
+      <span class="icon">☀️</span>
+      } @else {
+      <span class="icon">🌙</span>
+      }
+    </div>
+  </div>
+</header>
